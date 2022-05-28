@@ -16,7 +16,9 @@
                         src="" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title"> <%# Eval("name")  %></h5>
-                        <i class="card-subtitle mb-2 text-success">seller </i>
+                        <i class="card-subtitle mb-2 text-success">
+                            <%# Eval("User.name")  %>
+                        </i>
                         <p class="card-text text-justify w-100" style="height: 50px;overflow: hidden;text-overflow: ellipsis;">
                             <%# Eval("description")  %>
                         </p>

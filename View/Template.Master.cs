@@ -15,6 +15,10 @@ namespace balaitani_psd.View
             {
                 registerLink.Visible = false;
                 loginLink.Visible = false;
+
+                User user = (User)Session["user"];
+
+                userNameLbl.Text = user.name;
             } else
             {
                 dropdownDiv.Visible = false;

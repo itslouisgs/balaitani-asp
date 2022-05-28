@@ -18,6 +18,7 @@ namespace balaitani_psd
         public User()
         {
             this.Carts = new HashSet<Cart>();
+            this.Products = new HashSet<Product>();
             this.TransactionHeaders = new HashSet<TransactionHeader>();
         }
     
@@ -25,13 +26,13 @@ namespace balaitani_psd
         public string name { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public string shop_name { get; set; }
-        public string shop_address { get; set; }
         public string address { get; set; }
         public string role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionHeader> TransactionHeaders { get; set; }
     }

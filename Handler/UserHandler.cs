@@ -12,5 +12,10 @@ namespace balaitani_psd.Handler
         {
             return UserRepository.GetUser(username, password);
         }
+
+        public static User RegisterUser(User user)
+        {
+            return UserRepository.RegisterUser(user);
+        }
     }
 }

@@ -4,74 +4,72 @@
     <EntitySetMapping Name="Carts">
       <EntityTypeMapping TypeName="MainDatabaseModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
-          <ScalarProperty Name="user_id" ColumnName="user_id" />
-          <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PaymentMethods">
       <EntityTypeMapping TypeName="MainDatabaseModel.PaymentMethod">
         <MappingFragment StoreEntitySet="PaymentMethod">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="MainDatabaseModel.Product">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="stock" ColumnName="stock" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Shippings">
       <EntityTypeMapping TypeName="MainDatabaseModel.Shipping">
         <MappingFragment StoreEntitySet="Shipping">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransactionDetails">
       <EntityTypeMapping TypeName="MainDatabaseModel.TransactionDetail">
         <MappingFragment StoreEntitySet="TransactionDetail">
-          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
-          <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransactionHeaders">
       <EntityTypeMapping TypeName="MainDatabaseModel.TransactionHeader">
         <MappingFragment StoreEntitySet="TransactionHeader">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="user_id" ColumnName="user_id" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
-          <ScalarProperty Name="shipping_id" ColumnName="shipping_id" />
           <ScalarProperty Name="payment_method_id" ColumnName="payment_method_id" />
+          <ScalarProperty Name="shipping_id" ColumnName="shipping_id" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="MainDatabaseModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="shop_name" ColumnName="shop_name" />
-          <ScalarProperty Name="shop_address" ColumnName="shop_address" />
-          <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -64,8 +64,6 @@
     <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="shop_name" Type="varchar" MaxLength="255" />
-    <Property Name="shop_address" Type="varchar" MaxLength="255" />
     <Property Name="address" Type="text" Nullable="false" />
     <Property Name="role" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
@@ -153,6 +151,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Product_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="seller_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MainDatabaseModelStoreContainer">
     <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
@@ -188,6 +198,10 @@
     <AssociationSet Name="FK__Transacti__user___30F848ED" Association="Self.FK__Transacti__user___30F848ED">
       <End Role="User" EntitySet="User" />
       <End Role="TransactionHeader" EntitySet="TransactionHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Product" EntitySet="Product" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

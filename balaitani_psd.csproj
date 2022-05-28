@@ -92,6 +92,7 @@
     </Content>
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EFModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="PaymentMethod.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
@@ -122,6 +124,7 @@
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Shipping.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
@@ -148,6 +151,13 @@
     </Compile>
     <Compile Include="View\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Template.Master.cs">
       <DependentUpon>Template.Master</DependentUpon>

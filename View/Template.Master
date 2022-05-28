@@ -109,7 +109,7 @@
                 <div class="nav-item dropdown">
                     <a class="text-white nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Welcome, <b>user</b>
+                        Welcome, <asp:Label ID="userNameLbl" runat="server" Text="user" class="fw-bold"></asp:Label>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
