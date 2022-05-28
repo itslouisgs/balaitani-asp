@@ -92,6 +92,7 @@
     </Content>
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\ProductDetailPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="View\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductDetailPage.aspx.cs">
+      <DependentUpon>ProductDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ProductDetailPage.aspx.designer.cs">
+      <DependentUpon>ProductDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using balaitani_psd.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,9 @@ namespace balaitani_psd.View
 {
     public partial class HomePage : System.Web.UI.Page
     {
-        MainDatabaseEntities db = new MainDatabaseEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Product> products = db.Products.ToList();
+            List<Product> products = ProductRepository.GetAllProducts();
             rptProducts.DataSource = products;
             rptProducts.DataBind();
         }

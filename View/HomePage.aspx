@@ -24,7 +24,7 @@
                         </p>
                         <div class="d-flex justify-content-between align-items-center text-center">
                             <p class="m-0">Rp.<%# Eval("price")  %></p>
-                            <a href="/product/id" class="btn btn-outline-success">Details</a>
+                            <asp:HyperLink ID="detailLink" NavigateUrl='<%# Eval("id", "~/View/ProductDetailPage.aspx?id={0}") %>' class="btn btn-outline-success" runat="server">Details</asp:HyperLink>
                         </div>
                     </div>
                 </div>
