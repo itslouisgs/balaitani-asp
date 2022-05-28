@@ -57,3 +57,7 @@ C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\obj\Debug\balaitani_psd.cspro
 C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\obj\Debug\balaitani_psd.csproj.CopyComplete
 C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\obj\Debug\balaitani_psd.dll
 C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\obj\Debug\balaitani_psd.pdb
+C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\bin\EntityFramework.dll
+C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\bin\EntityFramework.SqlServer.dll
+C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\bin\EntityFramework.xml
+C:\Users\jevon\Desktop\0\project-psd\balaitani_psd\bin\EntityFramework.SqlServer.xml
