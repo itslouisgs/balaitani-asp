@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87a28fb40e64428a8a2baaf6f2183850" Name="Diagram1">
+        <EntityTypeShape EntityType="MainDatabaseModel.Cart" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.PaymentMethod" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.Product" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.Shipping" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.TransactionDetail" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.TransactionHeader" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MainDatabaseModel.User" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Cart__product_id__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Cart__user_id__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__payme__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__produ__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__shipp__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__trans__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__user___30F848ED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
