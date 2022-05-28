@@ -100,6 +100,7 @@
     <Compile Include="Cart.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="EFModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -117,6 +118,7 @@
       <DependentUpon>EFModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="PaymentMethod.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
