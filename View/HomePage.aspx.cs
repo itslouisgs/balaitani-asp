@@ -12,9 +12,9 @@ namespace balaitani_psd.View
         MainDatabaseEntities db = new MainDatabaseEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Product> products = (from x in db.Products select x).ToList();
-            gvProducts.DataSource = products;
-            gvProducts.DataBind();
+            List<Product> products = db.Products.ToList();
+            rptProducts.DataSource = products;
+            rptProducts.DataBind();
         }
     }
 }
