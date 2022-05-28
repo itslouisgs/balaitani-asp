@@ -97,22 +97,15 @@
 <body>
         <nav class="d-flex justify-content-between align-items-center border-bottom navbar" style="padding:0 10%">
         <div class="left-nav d-flex align-items-center">
-            <a href="/">
-                <img class="m-1" src="" alt="BalaiTani" width="150">
+            <a href="HomePage.aspx">
+                <img class="m-1" src="/Asset/logo-white.png" alt="BalaiTani" width="150">
             </a>
-            <form class="form-inline d-flex p-2" method="GET" action="/search">
-                <div class="input-group">
-                    <input type="text" class="form-control search" placeholder="Search crops..." name="keyword">
-                    <button class="btn btn-outline-light search" type="submit"><i class="fal fa-search"></i></button>
-                </div>
-            </form>
         </div>
         <div class="right-nav d-flex justify-content-around align-items-center ">
+            <asp:HyperLink NavigateUrl="~/View/HomePage.aspx"  class="mx-2 text-white btn" ID="registerLink" runat="server" >Register</asp:HyperLink>
+            <asp:HyperLink ID="loginLink" NavigateUrl="~/View/LoginPage.aspx" runat="server" class="mx-2 text-white btn">Login</asp:HyperLink>
+            <asp:Label ID="dropdownDiv" runat="server" Text="">
 
-          
-                <a href="/register" class="mx-2 text-white btn">Register</a>
-                <a href="/login" class="mx-2 text-white btn">Login</a>
-      
                 <div class="nav-item dropdown">
                     <a class="text-white nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -153,6 +146,8 @@
                         </li>
                     </ul>
                 </div>
+
+            </asp:Label>
         </div>
     </nav>
     <div class="pt-5 content d-flex align-items-center justify-content-center">

@@ -11,7 +11,14 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                registerLink.Visible = false;
+                loginLink.Visible = false;
+            } else
+            {
+                dropdownDiv.Visible = false;
+            }
         }
     }
 }

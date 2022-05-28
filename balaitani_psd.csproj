@@ -79,6 +79,7 @@
     <Content Include="App_Data\MainDatabase_log.ldf">
       <DependentUpon>MainDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Asset\logo-white.png" />
     <Content Include="EFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EFModel.Context.cs</LastGenOutput>

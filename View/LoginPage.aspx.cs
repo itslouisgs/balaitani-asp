@@ -12,7 +12,7 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            errorLbl.Visible = false;
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)
@@ -26,6 +26,7 @@ namespace balaitani_psd.View
             {
                 //login gagal
                 errorLbl.Text = "Email or password incorrect!";
+                errorLbl.Visible = true;
                 return;
             }
 
