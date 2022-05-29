@@ -1,4 +1,5 @@
-﻿using balaitani_psd.Repository;
+﻿using balaitani_psd.Controller;
+using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -36,5 +37,12 @@ namespace balaitani_psd.View
                 return;
             }
         }
+
+        //protected void addToCart(object sender, EventArgs e)
+        //{
+        //    string quantity = quantityTxt.Text;
+
+        //    string msg = ProductController.
+        //}
     }
 }

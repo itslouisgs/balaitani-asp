@@ -36,7 +36,7 @@
                     <asp:TextBox ID="quantityTxt" class="form-control" placeholder="0" runat="server"></asp:TextBox>
                 </div>
                 <p class="text-danger">The product quantity must be atleast 1</p>
-                <asp:LinkButton ID="cartBtn" runat="server" class="btn btn-outline-success w-100 my-3">Add to Cart <i class="fal fa-cart-plus mx-1"></i></asp:LinkButton>
+                <asp:LinkButton ID="cartBtn" runat="server" class="btn btn-outline-success w-100 my-3" OnClick="addToCart">Add to Cart <i class="fal fa-cart-plus mx-1"></i></asp:LinkButton>
                 <div class="alert alert-success mt-3">
                     <p class=" text-success" style="text-align: center; margin:auto">Item succesfully added to cart!</p>
                 </div>

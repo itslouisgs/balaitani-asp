@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +20,15 @@ namespace balaitani_psd.Repository
         public static List<Product> GetAllProducts()
         {
             return db.Products.ToList();
+        }
+
+        public static Product addProduct(Product product)
+        {
+            db.Products.Add(product);
+            Debug.WriteLine(product);
+            db.SaveChanges();
+
+            return product;
         }
     }
 }

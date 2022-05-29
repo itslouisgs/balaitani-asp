@@ -90,6 +90,7 @@
       <DependentUpon>EFModel.edmx</DependentUpon>
       <LastGenOutput>EFModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\AddProduct.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\ProductDetailPage.aspx" />
@@ -141,6 +142,13 @@
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
