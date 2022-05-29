@@ -27,6 +27,9 @@ namespace balaitani_psd.View
             if(product != null)
             {
                 nameLbl.Text = product.name;
+                sellerLbl.Text = product.User.name;
+                priceLbl.Text = product.price + "";
+                stockLbl.Text = product.stock + "";
             } else
             {
                 Response.Redirect("~/View/HomePage.aspx");

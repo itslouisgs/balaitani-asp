@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="banner position-relative overflow-hidden text-center d-flex flex-column justify-content-center align-items-center"
-        style="height: 60vh;">
+    <div class="banner position-relative overflow-hidden text-center d-flex flex-column justify-content-center align-items-center" style="height: 60vh;">
         <h1 class="text-light display-2 position-relative">Welcome to BalaiTani !</h1>
         <p class="text-light position-relative"><i>No. 1 App to support Indonesian local farmers</i></p>
         <a class="btn btn-outline-light position-relative" href="/about-us">About Us</a>
@@ -12,8 +11,7 @@
         <asp:Repeater ID="rptProducts" runat="server">
             <ItemTemplate>
                 <div class="card m-3 border-0 shadow" style="width: 18rem;border-radius: 15px;">
-                    <img class="card-img-top" style="object-fit: cover;border-radius: 15px 15px 0 0;" height="280"
-                        src="" alt="Product Image">
+                    <img class="card-img-top" style="object-fit: cover;border-radius: 15px 15px 0 0;" height="280" src="" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title"> <%# Eval("name")  %></h5>
                         <i class="card-subtitle mb-2 text-success">

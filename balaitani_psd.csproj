@@ -117,6 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EFModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />

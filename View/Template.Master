@@ -104,7 +104,7 @@
             </a>
         </div>
         <div class="right-nav d-flex justify-content-around align-items-center ">
-            <asp:HyperLink NavigateUrl="~/View/HomePage.aspx"  class="mx-2 text-white btn" ID="registerLink" runat="server" >Register</asp:HyperLink>
+            <asp:HyperLink NavigateUrl="~/View/RegisterPage.aspx"  class="mx-2 text-white btn" ID="registerLink" runat="server" >Register</asp:HyperLink>
             <asp:HyperLink ID="loginLink" NavigateUrl="~/View/LoginPage.aspx" runat="server" class="mx-2 text-white btn">Login</asp:HyperLink>
             <asp:Label ID="dropdownDiv" runat="server" Text="">
 

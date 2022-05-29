@@ -19,7 +19,7 @@
             </div>
             <div class="form-group my-2">
                 <label for="address">Address</label>
-                <asp:TextBox ID="addressTxt" Height="100"  class="form-control my-2" placeholder="Enter address" runat="server"></asp:TextBox>
+                <asp:TextBox ID="addressTxt" Height="100" class="form-control my-2 top" placeholder="Enter address" runat="server"></asp:TextBox>
             </div>
             <asp:Button ID="registerBtn" runat="server" class="btn btn-success w-100 my-3" Text="Register" OnClick="registerBtn_Click"/>
             <a href="/login" class="btn btn-success w-100" style="opacity: 0.7">Login</a>

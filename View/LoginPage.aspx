@@ -15,7 +15,7 @@
             </div>
             <asp:Button ID="loginBtn" runat="server" Text="Login" class="btn btn-success w-100 mt-3" OnClick="loginBtn_Click"/>
             <asp:Button ID="registerBtn" runat="server" Text="Register" class="btn btn-success w-100 mt-3" style="opacity: 0.7"/>
-                <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
+            <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
         </div>
     </div>
 </asp:Content>
