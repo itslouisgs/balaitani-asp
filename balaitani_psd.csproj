@@ -144,6 +144,7 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Util\Database.cs" />
     <Compile Include="View\AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

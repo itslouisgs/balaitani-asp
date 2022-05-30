@@ -13,6 +13,7 @@ namespace balaitani_psd.View
 {
     public partial class ProductDetailPage : System.Web.UI.Page
     {
+        private Product currentProduct = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             string idStr = Request.QueryString["id"];
@@ -25,23 +26,36 @@ namespace balaitani_psd.View
                 return;
             }
 
-            Product product = ProductRepository.GetProductById(id);
-            if(product != null)
+            currentProduct = ProductRepository.GetProductById(id);
+            if(currentProduct != null)
             {
-                nameLbl.Text = product.name;
-                sellerLbl.Text = product.User.name;
-                priceLbl.Text = product.price + "";
-                stockLbl.Text = product.stock + "";
+                nameLbl.Text = currentProduct.name;
+                sellerLbl.Text = currentProduct.User.name;
+                priceLbl.Text = currentProduct.price + "";
+                stockLbl.Text = currentProduct.stock + "";
+                descLbl.Text = currentProduct.description;
+                productImg.ImageUrl = "~/Asset/" + currentProduct.image;
             } else
             {
                 Response.Redirect("~/View/HomePage.aspx");
                 return;
             }
+
+            if(UserRepository.GetCurrentUser() == null || UserRepository.GetCurrentUser().id != currentProduct.User.id)
+            {
+                editBtn.Visible = false;
+                trashBtn.Visible = false;
+            }
+        }
+
+        protected void editBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/UpdateProduct.aspx?id=" + currentProduct.id);
         }
 
         //protected void addtocart(object sender, eventargs e)
         //{
-            
+
         //}
     }
 }

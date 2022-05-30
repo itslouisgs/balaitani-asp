@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="details d-flex justify-content-around content py-5">
         <div>
-            <img src="" alt="Product Image" class="border" style="border-radius:12px" width="300">
+            <asp:Image ID="productImg" runat="server" alt="Product Image" class="border" style="border-radius:12px" width="300"/>
         </div>
         <div class="w-50">
             <div class="d-flex justify-content-between align-items-center">
@@ -15,16 +15,15 @@
                     <%--<a href="/product/id/update" class="btn btn-outline-success mx-2">
                         <i class="fal fa-pencil"></i>
                     </a>--%>
-                    <asp:LinkButton ID="editBtn" runat="server" class="btn btn-outline-success mx-2"><i class="fal fa-pencil"></i></asp:LinkButton>
+                    <asp:LinkButton ID="editBtn" OnClick="editBtn_Click" runat="server" class="btn btn-outline-success mx-2"><i class="fal fa-pencil"></i></asp:LinkButton>
                     <asp:LinkButton ID="trashBtn" runat="server" class="btn btn-outline-danger"><i class="fal fa-trash-alt"></i></asp:LinkButton>
                 </div>
             </div>
             <p>
                 Seller: <b class="text-success"><asp:Label ID="sellerLbl" runat="server" Text=""></asp:Label></b>
             </p>
-            <p>Ipsum ea ipsam dolorem. Eos sapiente a et aut nesciunt ut non ipsam. Accusamus voluptatem mollitia id
-                pariatur dicta. Provident molestiae iusto sit eum ea quis error. At error explicabo facere ea rerum. Eum
-                incidunt beatae unde doloribus. Voluptatum voluptatem rerum vel.</p>
+            <asp:Label ID="descLbl" runat="server" Text="Label"></asp:Label>
+            
             </div>
         <div class="action" style="min-width: 20%">
             <div class="border p-3" style="border-radius:12px">

@@ -1,4 +1,5 @@
 ﻿using balaitani_psd.Model;
+using balaitani_psd.Util;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,7 @@ namespace balaitani_psd.Repository
 {
     public class ProductRepository
     {
-        private static MainDatabaseEntities db = new MainDatabaseEntities();
+        private static MainDatabaseEntities db = Database.GetDatabase();
 
         public static Product GetProductById(int id)
         {

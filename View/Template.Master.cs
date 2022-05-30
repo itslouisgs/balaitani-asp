@@ -1,4 +1,5 @@
 ﻿using balaitani_psd.Model;
+using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,12 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null)
+            if (UserRepository.GetCurrentUser() != null)
             {
                 registerLink.Visible = false;
                 loginLink.Visible = false;
 
-                User user = (User)Session["user"];
+                User user = UserRepository.GetCurrentUser();
 
                 userNameLbl.Text = user.name;
             } else
