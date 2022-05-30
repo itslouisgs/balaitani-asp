@@ -26,5 +26,11 @@ namespace balaitani_psd.View
                 dropdownDiv.Visible = false;
             }
         }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            UserRepository.Logout();
+            Response.Redirect("~/View/LoginPage.aspx");
+        }
     }
 }

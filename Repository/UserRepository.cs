@@ -23,6 +23,12 @@ namespace balaitani_psd.Repository
             return currentUser;
         }
 
+        public static void Logout()
+        {
+            HttpContext.Current.Session["user"] = null;
+            currentUser = null;
+        }
+
         public static User GetUser(string email, string password)
         {
             return (from x in db.Users
