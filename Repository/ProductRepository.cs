@@ -22,7 +22,7 @@ namespace balaitani_psd.Repository
             return db.Products.ToList();
         }
 
-        public static Product addProduct(Product product)
+        public static Product AddProduct(Product product)
         {
             db.Products.Add(product);
             Debug.WriteLine(product);

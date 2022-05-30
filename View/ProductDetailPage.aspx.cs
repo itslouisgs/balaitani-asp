@@ -38,11 +38,9 @@ namespace balaitani_psd.View
             }
         }
 
-        //protected void addToCart(object sender, EventArgs e)
+        //protected void addtocart(object sender, eventargs e)
         //{
-        //    string quantity = quantityTxt.Text;
-
-        //    string msg = ProductController.
+            
         //}
     }
 }

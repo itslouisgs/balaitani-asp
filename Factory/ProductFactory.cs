@@ -7,17 +7,17 @@ namespace balaitani_psd.Factory
 {
     public class ProductFactory
     {
-        public static Product Create(int id, string name, int price, int stock, string description, string image, int seller_id)
+        public static Product Create(string name, int price, int stock, string description)
         {
             Product newProduct = new Product
             {
-                id = id,
+                //id = id,
                 name = name,
                 price = price,
                 stock = stock,
                 description = description,
-                image = image,
-                seller_id = seller_id
+                //image = image
+                //seller_id = seller_id
             };
 
             return newProduct;
