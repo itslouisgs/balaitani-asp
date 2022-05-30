@@ -1,4 +1,5 @@
 ﻿using balaitani_psd.Controller;
+using balaitani_psd.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,17 @@ namespace balaitani_psd.View
 {
     public partial class AddProduct : System.Web.UI.Page
     {
+        private User currentUser = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                currentUser = (User)Session["user"];
+            }
+            else
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
         }
         protected void AddBtn_Click(object sender, EventArgs e)
         {
@@ -22,7 +31,7 @@ namespace balaitani_psd.View
             string description = descriptionTxt.Text;
             //string image = imageFile.FileName;
 
-            string msg = ProductController.AddProduct(name, price, stock, description);
+            string msg = ProductController.AddProduct(name, price, stock, "", description, currentUser.id);
 
             if (msg.Contains("successfully"))
             {

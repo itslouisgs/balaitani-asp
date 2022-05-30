@@ -20,14 +20,14 @@ namespace balaitani_psd.Controller
             return ProductHandler.GetAllProducts();
         }
 
-        public static string AddProduct(string name, int price, int stock, string description) //add img later
+        public static string AddProduct(string name, int price, int stock, string image, string description, int seller_id) //add img later
         {
             if (name.Length < 1 || price < 1 || stock < 1 || description.Length < 1)
             {
                 return "All fields must be filled!";
             }
 
-            Product product = ProductFactory.Create(name, price, stock, description);
+            Product product = ProductFactory.Create(name, price, stock, image, description, seller_id);
             ProductHandler.AddProduct(product);
             return "Product added succesfully";
         }
