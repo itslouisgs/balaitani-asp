@@ -27,11 +27,10 @@
                 <asp:TextBox ID="descriptionTxt" runat="server" class="form-control my-2" placeholder="Enter description"></asp:TextBox>
 
             </div>
-            <%--            <div class="form-group my-2">
+            <div class="form-group my-2">
                 <label for="image">Image</label>
-                <input class="form-control my-2" type="file" name="image">
-                <asp:FileUpload ID="imageFile" runat="server" />
-            </div>--%>
+                <asp:FileUpload ID="imageFile" class="form-control my-2" runat="server" />
+            </div>
             <asp:Button ID="submitBtn" runat="server" class="btn btn-success w-100 my-3" Text="Add" OnClick="AddBtn_Click" />
             <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
         </div>

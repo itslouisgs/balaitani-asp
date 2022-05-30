@@ -31,7 +31,7 @@ namespace balaitani_psd.View
             string description = descriptionTxt.Text;
             //string image = imageFile.FileName;
 
-            string msg = ProductController.AddProduct(name, price, stock, "", description, currentUser.id);
+            string msg = ProductController.AddProduct(name, price, stock, imageFile, description, currentUser.id);
 
             if (msg.Contains("successfully"))
             {

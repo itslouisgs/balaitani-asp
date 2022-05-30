@@ -11,7 +11,7 @@
         <asp:Repeater ID="rptProducts" runat="server">
             <ItemTemplate>
                 <div class="card m-3 border-0 shadow" style="width: 18rem;border-radius: 15px;">
-                    <img class="card-img-top" style="object-fit: cover;border-radius: 15px 15px 0 0;" height="280" src="" alt="Product Image">
+                    <asp:Image ID="Image1" runat="server" class="card-img-top" style="object-fit: cover;border-radius: 15px 15px 0 0;" height="280" ImageUrl='<%# "~/Asset/" +  Eval("image")  %>'/>
                     <div class="card-body">
                         <h5 class="card-title"> <%# Eval("name")  %></h5>
                         <i class="card-subtitle mb-2 text-success">
