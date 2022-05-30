@@ -1,4 +1,5 @@
-﻿using balaitani_psd.Repository;
+﻿using balaitani_psd.Model;
+using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
