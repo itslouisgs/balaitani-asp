@@ -36,6 +36,7 @@ namespace balaitani_psd.View
 
             if (msg.Contains("successfully"))
             {
+                Response.Redirect("~/View/HomePage.aspx");
                 errorLbl.CssClass = "text-success";
             }
             errorLbl.Text = msg;

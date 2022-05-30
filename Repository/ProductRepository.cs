@@ -32,5 +32,11 @@ namespace balaitani_psd.Repository
 
             return product;
         }
+
+        public static Product UpdateProduct(Product product)
+        {
+            db.SaveChanges();
+            return product;
+        }
     }
 }

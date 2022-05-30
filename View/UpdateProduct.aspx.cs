@@ -1,4 +1,5 @@
-﻿using balaitani_psd.Model;
+﻿using balaitani_psd.Controller;
+using balaitani_psd.Model;
 using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
@@ -27,21 +28,41 @@ namespace balaitani_psd.View
             currentProduct = ProductRepository.GetProductById(id);
             if (currentProduct != null)
             {
-                nameTxt.Text = currentProduct.name;
-                priceTxt.Text = currentProduct.price + "";
-                stockTxt.Text = currentProduct.stock + "";
-                descriptionTxt.Text = currentProduct.description;
+                if (!IsPostBack)
+                {
+                    nameTxt.Text = currentProduct.name;
+                    priceTxt.Text = currentProduct.price + "";
+                    stockTxt.Text = currentProduct.stock + "";
+                    descriptionTxt.Text = currentProduct.description;
+                }
             }
             else
             {
                 Response.Redirect("~/View/HomePage.aspx");
                 return;
             }
+
+            if (UserRepository.GetCurrentUser() == null || UserRepository.GetCurrentUser().id != currentProduct.User.id)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)
         {
+            string name = nameTxt.Text;
+            int.TryParse(priceTxt.Text, out int price);
+            int.TryParse(stockTxt.Text, out int stock);
+            string description = descriptionTxt.Text;
 
+            string msg = ProductController.UpdateProduct(currentProduct.id, name, price, stock, description);
+
+            if (msg.Contains("successfully"))
+            {
+                //Response.Redirect("~/View/LoginPage.aspx");
+                errorLbl.CssClass = "text-success";
+            }
+            errorLbl.Text = msg;
         }
     }
 }

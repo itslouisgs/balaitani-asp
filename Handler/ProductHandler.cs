@@ -23,5 +23,10 @@ namespace balaitani_psd.Handler
         {
             return ProductRepository.AddProduct(product);
         }
+
+        public static Product UpdateProduct(Product product)
+        {
+            return ProductRepository.UpdateProduct(product);
+        }
     }
 }

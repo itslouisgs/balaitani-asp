@@ -36,5 +36,23 @@ namespace balaitani_psd.Controller
             ProductHandler.AddProduct(product);
             return "Product added succesfully";
         }
+
+        public static string UpdateProduct(int id, string name, int price, int stock, string description)
+        {
+            if (name.Length < 1 || price < 1 || stock < 1 || description.Length < 1)
+            {
+                return "All fields must be filled!";
+            }
+            Product product = GetProductById(id);
+            if (product == null)
+                return "Error! Product Not found!";
+
+            product.name = name;
+            product.stock = stock;
+            product.description = description;
+
+            ProductHandler.UpdateProduct(product);
+            return "Product Updated successfully";
+        }
     }
 }
