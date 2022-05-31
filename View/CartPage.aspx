@@ -15,7 +15,7 @@
             <asp:Label ID="cartContainer" class="details d-flex gap-5" runat="server">
 
                 <ul class="list-group" style="min-width: 72.5%">
-                    <asp:Repeater ID="rptCarts" runat="server">
+                    <asp:Repeater ID="rptCarts" runat="server" OnItemCommand="rptCarts_ItemCommand">
                         <ItemTemplate>
                             <li class="list-group-item shadow rounded d-flex align-items-center w-100 p-4 gap-4 mb-3">
                                 <div class="d-flex gap-5 w-100" style="">
@@ -28,10 +28,8 @@
                                         <div class="d-flex justify-content-between">
                                             <asp:HyperLink ID="detailLink" NavigateUrl='<%# Eval("Product.id", "~/View/ProductDetailPage.aspx?id={0}") %>' class="btn btn-success" runat="server">Details</asp:HyperLink>
                                             <div class="d-flex gap-3">
-                                                <button type="submit" class="btn btn-outline-danger">
-                                                    <i
-                                                        class="fal fa-trash-alt"></i>
-                                                </button>
+                                                <asp:LinkButton ID="deleteBtn" class="btn btn-outline-danger" runat="server" CommandName="deleteCart" CommandArgument='<%# Eval("Product.id")  %>'><i
+                                                        class="fal fa-trash-alt"></i></asp:LinkButton>
                                                 <div class="input-group" style="width: 150px">
                                                     <span class="input-group-text">Quantity</span>
                                                     <asp:TextBox ID="quantityTxt" TextMode="Number" Text='<%# Eval("quantity")  %>' class="form-control" OnTextChanged="quantityTxt_TextChanged" runat="server"></asp:TextBox>

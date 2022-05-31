@@ -2,6 +2,7 @@
 using balaitani_psd.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -46,6 +47,19 @@ namespace balaitani_psd.View
         protected void quantityTxt_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void rptCarts_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if(e.CommandName == "deleteCart")
+            {
+                string idStr = e.CommandArgument.ToString();
+                int.TryParse(idStr, out int id);
+                Cart cart = carts.Where(c => c.product_id == id).FirstOrDefault();
+
+                CartController.DeleteCart(cart);
+                Response.Redirect(Request.RawUrl);
+            }
         }
     }
 }

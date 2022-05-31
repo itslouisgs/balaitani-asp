@@ -30,5 +30,10 @@ namespace balaitani_psd.Controller
 
             return "Cart added successfully";
         }
+
+        public static void DeleteCart(Cart cart)
+        {
+            CartHandler.DeleteCart(cart);
+        }
     }
 }
