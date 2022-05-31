@@ -10,24 +10,7 @@ namespace balaitani_psd.Repository
 {
     public class UserRepository
     {
-        private static User currentUser = null;
-
         private static MainDatabaseEntities db = Database.GetDatabase();
-
-        public static User GetCurrentUser()
-        {
-            if(currentUser == null && HttpContext.Current.Session["user"] != null)
-            {
-                currentUser = (User)HttpContext.Current.Session["user"];
-            }
-            return currentUser;
-        }
-
-        public static void Logout()
-        {
-            HttpContext.Current.Session["user"] = null;
-            currentUser = null;
-        }
 
         public static User GetUser(string email, string password)
         {

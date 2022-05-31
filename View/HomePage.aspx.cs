@@ -1,5 +1,5 @@
-﻿using balaitani_psd.Model;
-using balaitani_psd.Repository;
+﻿using balaitani_psd.Controller;
+using balaitani_psd.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Product> products = ProductRepository.GetAllProducts();
+            List<Product> products = ProductController.GetAllProducts();
             rptProducts.DataSource = products;
             rptProducts.DataBind();
         }

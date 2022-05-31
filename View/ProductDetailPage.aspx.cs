@@ -41,7 +41,7 @@ namespace balaitani_psd.View
                 return;
             }
 
-            if(UserRepository.GetCurrentUser() == null || UserRepository.GetCurrentUser().id != currentProduct.User.id)
+            if(UserController.GetCurrentUser() == null || UserController.GetCurrentUser().id != currentProduct.User.id)
             {
                 editBtn.Visible = false;
                 trashBtn.Visible = false;

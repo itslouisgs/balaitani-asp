@@ -10,6 +10,19 @@ namespace balaitani_psd.Controller
 {
     public class UserController
     {
+        public static User GetCurrentUser()
+        {
+            if (HttpContext.Current.Session["user"] != null)
+            {
+               return (User)HttpContext.Current.Session["user"];
+            }
+            return null;
+        }
+
+        public static void Logout()
+        {
+            HttpContext.Current.Session["user"] = null;
+        }
         public static User GetUser(string email, string password)
         {
             return UserHandler.GetUser(email, password);

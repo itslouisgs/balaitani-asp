@@ -1,6 +1,5 @@
 ﻿using balaitani_psd.Controller;
 using balaitani_psd.Model;
-using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +24,7 @@ namespace balaitani_psd.View
                 return;
             }
 
-            currentProduct = ProductRepository.GetProductById(id);
+            currentProduct = ProductController.GetProductById(id);
             if (currentProduct != null)
             {
                 if (!IsPostBack)
@@ -42,7 +41,7 @@ namespace balaitani_psd.View
                 return;
             }
 
-            if (UserRepository.GetCurrentUser() == null || UserRepository.GetCurrentUser().id != currentProduct.User.id)
+            if (UserController.GetCurrentUser() == null || UserController.GetCurrentUser().id != currentProduct.User.id)
             {
                 Response.Redirect("~/View/HomePage.aspx");
             }

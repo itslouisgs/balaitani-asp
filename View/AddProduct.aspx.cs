@@ -1,6 +1,5 @@
 ﻿using balaitani_psd.Controller;
 using balaitani_psd.Model;
-using balaitani_psd.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +14,9 @@ namespace balaitani_psd.View
         private User currentUser = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (UserRepository.GetCurrentUser() != null)
+            if (UserController.GetCurrentUser() != null)
             {
-                currentUser = UserRepository.GetCurrentUser();
+                currentUser = UserController.GetCurrentUser();
             }
             else
             {
