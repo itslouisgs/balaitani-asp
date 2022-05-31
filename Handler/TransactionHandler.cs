@@ -18,10 +18,5 @@ namespace balaitani_psd.Handler
         {
             return TransactionRepository.AddTransactionDetails(transactionDetails);
         }
-
-        public static TransactionHeader GetTransactionById(int id)
-        {
-            return TransactionRepository.GetTransactionById(id);
-        }
     }
 }

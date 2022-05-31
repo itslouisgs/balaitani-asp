@@ -14,6 +14,12 @@ namespace balaitani_psd.View
         private TransactionHeader currentTransaction = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (UserController.GetCurrentUser() == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+                return;
+            }
+
             string idStr = Request.QueryString["id"];
             int id = 0;
             int.TryParse(idStr, out id);
@@ -24,7 +30,16 @@ namespace balaitani_psd.View
                 return;
             }
 
-            currentTransaction = TransactionController.GetTransactionById(id);
+            try
+            {
+                currentTransaction = UserController.GetCurrentUser().TransactionHeaders.Where(x => x.id == id).ToList().First();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+                return;
+            }
+            
 
             if (currentTransaction != null)
             {

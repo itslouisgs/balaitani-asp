@@ -24,9 +24,5 @@ namespace balaitani_psd.Controller
             CartHandler.ClearCart(carts);
             return true;
         }
-        public static TransactionHeader GetTransactionById(int id)
-        {
-            return TransactionHandler.GetTransactionById(id);
-        }
     }
 }
