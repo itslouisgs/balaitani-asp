@@ -26,7 +26,7 @@
                                         <h5 class="fw-normal"><%# Eval("Product.name")  %></h5>
                                         <p class="fw-bold">Rp <%# Eval("Product.price")  %></p>
                                         <div class="d-flex justify-content-between">
-                                            <a href="/product/id" class="btn btn-success">Details</a>
+                                            <asp:HyperLink ID="detailLink" NavigateUrl='<%# Eval("Product.id", "~/View/ProductDetailPage.aspx?id={0}") %>' class="btn btn-success" runat="server">Details</asp:HyperLink>
                                             <div class="d-flex gap-3">
                                                 <button type="submit" class="btn btn-outline-danger">
                                                     <i
@@ -49,20 +49,20 @@
                     <ul class="my-3 p-0 d-flex flex-column gap-2">
                         <li class="d-flex justify-content-between">
                             <span>Subtotal</span>
-                            <span>Rp 0</span>
+                            <span>Rp <asp:Label ID="subTotalLbl" runat="server" Text=""></asp:Label></span>
                         </li>
                         <li class="d-flex justify-content-between">
                             <span>Tax</span>
-                            <span>Rp 0</span>
+                            <span>Rp <asp:Label ID="taxLbl" runat="server" Text=""></asp:Label></span>
                         </li>
                         <li class="d-flex justify-content-between">
                             <span>Discount</span>
-                            <span>-Rp 0.00</span>
+                            <span>-Rp 0,00</span>
                         </li>
                         <hr class="my-2" />
                         <li class="d-flex justify-content-between">
                             <span class="fw-bold">Total</span>
-                            <span class="fw-bold">Rp 0</span>
+                            <span class="fw-bold">Rp <asp:Label ID="totalLbl" runat="server" Text=""></asp:Label></span>
                         </li>
                     </ul>
 

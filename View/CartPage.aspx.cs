@@ -28,6 +28,15 @@ namespace balaitani_psd.View
             }
             else
             {
+                int total = 0;
+                foreach(Cart c in carts)
+                {
+                    total += c.Product.price * c.quantity;
+                }
+                subTotalLbl.Text = Convert.ToDecimal(total).ToString("#,##0.00");
+                taxLbl.Text = Convert.ToDecimal(0.1 * total).ToString("#,##0.00");
+                totalLbl.Text = Convert.ToDecimal(1.1 * total).ToString("#,##0.00");
+
                 emptyCartErrorContainer.Visible = false;
                 rptCarts.DataSource = carts;
                 rptCarts.DataBind();
