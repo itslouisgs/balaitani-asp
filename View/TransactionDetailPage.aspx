@@ -36,18 +36,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <asp:Repeater ID="Repeater1" runat="server">
+                    <asp:Repeater ID="tDetails" runat="server">
                         <ItemTemplate>
                             <tr>
                                 <th scope="row" class="ps-4 pe-3 d-flex align-items-center gap-4 w-fit-content">
-                                    <asp:Image ID="Image1" runat="server" AlternateText="Product Image" Width="100" CssClass="my-2" style="border-radius:12px;" />
-                                    <p class="mb-0"><asp:Label ID="tName" runat="server" Text=""></asp:Label></p>
+                                    <asp:Image ID="Image1" runat="server" alt="Product Image" width="100"
+                                        class="my-2" style="border-radius:12px;" ImageUrl='<%# "~/Asset/" +  Eval("Product.image")  %>'/>
+                                    <p class="mb-0"><%# Eval("Product.name")  %></p>
                                 </th>
-                                <td class="text-end ps-3">Rp <asp:Label ID="tPrice" runat="server" Text=""></asp:Label></td>
-                                <td class="text-end ps-3">
-                                    <asp:Label ID="tQuantity" runat="server" Text=""></asp:Label>
-                                </td>
-                                <td class="text-end ps-3 pe-4">Rp <asp:Label ID="tTotal" runat="server" Text=""></asp:Label>
+                                <td class="text-end ps-3">Rp <%# Eval("Product.price")  %></td>
+                                <td class="text-end ps-3"><%# Eval("quantity")  %></td>
+                                <td class="text-end ps-3 pe-4">Rp 
+                                    <%# Convert.ToInt32(Eval("quantity"))*Convert.ToInt32(Eval("Product.price"))%>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -56,7 +56,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="3" class="text-end ps-4 fw-bold">Subtotal</td>
-                        <td class="text-end pe-4">Rp {{ number_format($total, 2) }}</td>
+                        <td class="text-end pe-4">Rp <asp:Label ID="tTotal" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-end fw-bold">Shipping Fee</td>
@@ -68,11 +68,9 @@
                     </tr>
                     <tr>
                         <td colspan="3" class="text-end fw-bold">Net Total</td>
-                        <td class="text-end pe-4 fw-bold">Rp
-                            {{ number_format($total + $detail->first()->shipping->price, 2) }}</td>
+                        <td class="text-end pe-4 fw-bold">Rp <asp:Label ID="tNetTotal" runat="server" Text=""></asp:Label></td>
                     </tr>
                 </tfoot>
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </table>
         </div>
 

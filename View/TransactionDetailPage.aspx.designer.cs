@@ -51,13 +51,22 @@ namespace balaitani_psd.View
         protected global::System.Web.UI.WebControls.Label tPaymentMethod;
 
         /// <summary>
-        /// Repeater1 control.
+        /// tDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Repeater tDetails;
+
+        /// <summary>
+        /// tTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tTotal;
 
         /// <summary>
         /// tShippingFee control.
@@ -69,12 +78,12 @@ namespace balaitani_psd.View
         protected global::System.Web.UI.WebControls.Label tShippingFee;
 
         /// <summary>
-        /// Label1 control.
+        /// tNetTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label tNetTotal;
     }
 }

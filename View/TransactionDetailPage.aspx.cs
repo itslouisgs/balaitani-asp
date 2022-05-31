@@ -24,7 +24,6 @@ namespace balaitani_psd.View
                 return;
             }
 
-            //
             currentTransaction = TransactionController.GetTransactionById(id);
 
             if (currentTransaction != null)
@@ -35,8 +34,18 @@ namespace balaitani_psd.View
                 tPaymentMethod.Text = currentTransaction.PaymentMethod.name;
                 tShippingFee.Text = currentTransaction.Shipping.price + "";
 
-                Label1.Text = currentTransaction.TransactionDetails.ToString();
-                                
+                tDetails.DataSource = currentTransaction.TransactionDetails;
+                tDetails.DataBind();
+
+                int total = 0;
+
+                foreach (var item in currentTransaction.TransactionDetails)
+                {
+                    total += item.Product.price * item.quantity;
+                }
+
+                tTotal.Text = total + "";
+                tNetTotal.Text = (total + currentTransaction.Shipping.price).ToString();
             }
             else
             {
