@@ -38,5 +38,20 @@ namespace balaitani_psd.Repository
                 return false;
             }
         }
+
+        public static bool ClearCart(List<Cart> carts)
+        {
+            db.Carts.RemoveRange(carts);
+            try
+            {
+                db.SaveChanges();
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

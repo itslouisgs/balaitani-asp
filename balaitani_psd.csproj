@@ -104,6 +104,7 @@
     <Compile Include="Controller\PaymentMethodController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Controller\ShippingController.cs" />
     <Compile Include="Handler\PaymentMethodHandler.cs" />

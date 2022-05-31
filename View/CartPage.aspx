@@ -68,7 +68,7 @@
                             </asp:DropDownList>
                         </li>
                         <li class="d-flex justify-content-between">
-                            <asp:DropDownList ID="paymentMethodSelect" class="form-select"  runat="server" OnSelectedIndexChanged="paymentMethodSelect_SelectedIndexChanged"
+                            <asp:DropDownList ID="paymentMethodSelect" class="form-select"  runat="server" OnSelectedIndexChanged="shippingServiceSelect_SelectedIndexChanged" AutoPostBack="True"
                                 >
                                 <asp:ListItem Value="0" Text="Choose payment method" Selected="true"/>
                                 <asp:ListItem Value="1" Text="tes" />
@@ -80,9 +80,9 @@
                             <span class="fw-bold">Rp <asp:Label ID="totalLbl" runat="server" Text=""></asp:Label></span>
                         </li>
                     </ul>
+                    <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
+                    <asp:LinkButton ID="checkoutBtn" OnClick="checkoutBtn_Click" class="btn btn-success mt-2 w-100" runat="server"><i class="fas fa-cash-register me-2"></i>Checkout</asp:LinkButton>
 
-                    <a href="/checkout" class="btn btn-success mt-2 w-100"><i class="fas fa-cash-register me-2"></i>Check
-                        out</a>
                 </div>
             </asp:Label>
 

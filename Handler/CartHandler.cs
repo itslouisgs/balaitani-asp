@@ -23,5 +23,9 @@ namespace balaitani_psd.Handler
         {
             return CartRepository.DeleteCart(Cart);
         }
+        public static bool ClearCart(List<Cart> carts)
+        {
+            return CartRepository.ClearCart(carts);
+        }
     }
 }

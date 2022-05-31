@@ -15,8 +15,11 @@ namespace balaitani_psd.View
         private List<Cart> carts;
         private List<PaymentMethod> paymentMethods;
         private List<Shipping> shippings;
+
+        private int totalPrice = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("maaaa");
             if (UserController.GetCurrentUser() == null)
             {
                 Response.Redirect("LoginPage.aspx");
@@ -31,48 +34,58 @@ namespace balaitani_psd.View
             }
             else
             {
-                int total = 0;
-                foreach(Cart c in carts)
+                totalPrice = 0;
+                foreach (Cart c in carts)
                 {
-                    total += c.Product.price * c.quantity;
+                    totalPrice += c.Product.price * c.quantity;
                 }
-                subTotalLbl.Text = Convert.ToDecimal(total).ToString("#,##0.00");
-                taxLbl.Text = Convert.ToDecimal(0.1 * total).ToString("#,##0.00");
-                totalLbl.Text = Convert.ToDecimal(1.1 * total).ToString("#,##0.00");
+                UpdatePrices(totalPrice);
 
                 emptyCartErrorContainer.Visible = false;
                 rptCarts.DataSource = carts;
                 rptCarts.DataBind();
 
                 shippings = ShippingController.GetAllShippings();
+                paymentMethods = PaymentMethodController.GetAllPaymentMethods();
 
                 var dataSource = from x in shippings
                                  select new
                                  {
                                      x.id,
                                      x.name,
-                                     DisplayField = String.Format("{0} (Rp{1})", x.name, x.price)
+                                     DisplayField = string.Format("{0} (Rp{1})", x.name, x.price)
                                  };
-                shippingServiceSelect.DataTextField = "DisplayField";
-                shippingServiceSelect.DataValueField = "id";
-                shippingServiceSelect.DataSource = dataSource;
+                if (!IsPostBack)
+                {
+                    shippingServiceSelect.DataTextField = "DisplayField";
+                    shippingServiceSelect.DataValueField = "id";
+                    shippingServiceSelect.DataSource = dataSource;
 
-                shippingServiceSelect.DataBind();
-                shippingServiceSelect.Items.Insert(0, new ListItem("Choose shipping service", "0"));
+                    shippingServiceSelect.DataBind();
+                    shippingServiceSelect.Items.Insert(0, new ListItem("Choose shipping service", "0"));
 
-                paymentMethods = PaymentMethodController.GetAllPaymentMethods();
-                paymentMethodSelect.DataTextField = "name";
-                paymentMethodSelect.DataValueField = "id";
-                paymentMethodSelect.DataSource = paymentMethods;
+                    paymentMethodSelect.DataTextField = "name";
+                    paymentMethodSelect.DataValueField = "id";
+                    paymentMethodSelect.DataSource = paymentMethods;
 
-                paymentMethodSelect.DataBind();
-                paymentMethodSelect.Items.Insert(0, new ListItem("Choose payment method", "0"));
+                    paymentMethodSelect.DataBind();
+                    paymentMethodSelect.Items.Insert(0, new ListItem("Choose payment method", "0"));
+
+                }
+
             }
+        }
+
+        private void UpdatePrices(int currentPrice)
+        {
+            subTotalLbl.Text = Convert.ToDecimal(currentPrice).ToString("#,##0.00");
+            taxLbl.Text = Convert.ToDecimal(0.1 * currentPrice).ToString("#,##0.00");
+            totalLbl.Text = Convert.ToDecimal(1.1 * currentPrice).ToString("#,##0.00");
         }
 
         protected void rptCarts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if(e.CommandName == "deleteCart")
+            if (e.CommandName == "deleteCart")
             {
                 string idStr = e.CommandArgument.ToString();
                 int.TryParse(idStr, out int id);
@@ -85,12 +98,32 @@ namespace balaitani_psd.View
 
         protected void shippingServiceSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // TODO: Fix selected dropdown on change
+            int.TryParse(shippingServiceSelect.SelectedValue.ToString(), out int shippingPrice);
+            UpdatePrices(totalPrice + shippingPrice);
 
         }
 
         protected void paymentMethodSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void checkoutBtn_Click(object sender, EventArgs e)
+        {
+            int.TryParse(paymentMethodSelect.SelectedValue, out int payment_method_id);
+            int.TryParse(shippingServiceSelect.SelectedValue, out int shipping_id);
+
+            if(!shippings.Where(s => s.id == shipping_id).Any() || !paymentMethods.Where(p => p.id == payment_method_id).Any())
+            {
+                errorLbl.Text = "Please choose Shipping and Payment Method!";
+                return;
+            }
+
+            if(TransactionController.Checkout(UserController.GetCurrentUser().id, carts, payment_method_id, shipping_id))
+            {
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         //protected void quantityTxt_TextChanged(object sender, EventArgs e)
