@@ -38,7 +38,7 @@ namespace balaitani_psd.Controller
 
             Product product = ProductFactory.Create(name, price, stock, imageFile, description, seller_id);
             ProductHandler.AddProduct(product);
-            return "Product added succesfully";
+            return "Product added successfully";
         }
 
         public static string UpdateProduct(int id, string name, int price, int stock, string description)

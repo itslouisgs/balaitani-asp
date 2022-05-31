@@ -60,5 +60,23 @@ namespace balaitani_psd.View
             else
                 errorLbl.Text = "Delete error!";
         }
+
+        protected void cartBtn_Click(object sender, EventArgs e)
+        {
+            if(UserController.GetCurrentUser() == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+                return;
+            }
+
+            int.TryParse(quantityTxt.Text, out int quantity);
+            string msg = CartController.AddCart(UserController.GetCurrentUser(), currentProduct, quantity);
+
+            if (msg.Contains("success"))
+            {
+                errorLbl.CssClass = "text-success";
+            }
+            errorLbl.Text = msg;
+        }
     }
 }
