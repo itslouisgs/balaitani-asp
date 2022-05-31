@@ -4,7 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container container-fluid py-5 content">
         <h2 class="mb-5">
-            <a href="@if(auth()->user()->role == 'admin')/verify-transaction @else /transactions @endif" class=""><i class="fal fa-arrow-left fs-4 text-dark me-2"></i></a>
             Details
         </h2>
 
@@ -12,20 +11,19 @@
             <ul class="d-flex flex-column gap-2 w-50 px-0 pb-4">
                 <li class="d-flex">
                     <span class="w-50 fw-bold">Date of transaction</span>
-                    <span>{{ $detail->first()->transaction_date->format('F d, Y') }}</span>
+                    <asp:Label ID="tDate" runat="server" Text=""></asp:Label>
                 </li>
                 <li class="d-flex">
                     <span class="w-50 fw-bold">Status</span>
-                    <span
-                        class={{ $detail->first()->status == 'success' ? 'text-success' : 'text-danger' }}>{{ ucwords($detail->first()->status) }}</span>
+                    <asp:Label ID="tStatus" runat="server" Text=""></asp:Label>
                 </li>
                 <li class="d-flex">
                     <span class="w-50 fw-bold">Shipping</span>
-                    <span>{{ $detail->first()->shipping->name }}</span>
+                    <asp:Label ID="tShipping" runat="server" Text=""></asp:Label>
                 </li>
                 <li class="d-flex">
                     <span class="w-50 fw-bold">Payment method</span>
-                    <span>{{ $detail->first()->payment_method->name }}</span>
+                    <asp:Label ID="tPaymentMethod" runat="server" Text=""></asp:Label>
                 </li>
             </ul>
             <table class="table table-hover align-middle border">
@@ -38,26 +36,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $total = 0;
-                    @endphp
-
-                    @foreach ($detail->first()->transaction_details as $d)
-                        @php
-                            $total += $d->product->price * $d->quantity;
-                        @endphp
-                        <tr>
-                            <th scope="row" class="ps-4 pe-3 d-flex align-items-center gap-4 w-fit-content">
-                                <img src="{{ Storage::url($d->product->image) }}" alt="Product Image" width="100"
-                                    class="my-2" style="border-radius:12px;">
-                                <p class="mb-0">{{ $d->product->name }}</p>
-                            </th>
-                            <td class="text-end ps-3">Rp {{ number_format($d->product->price, 2) }}</td>
-                            <td class="text-end ps-3">{{ $d->quantity }}</td>
-                            <td class="text-end ps-3 pe-4">Rp {{ number_format($d->product->price * $d->quantity, 2) }}
-                            </td>
-                        </tr>
-                    @endforeach
+                    <asp:Repeater ID="Repeater1" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <th scope="row" class="ps-4 pe-3 d-flex align-items-center gap-4 w-fit-content">
+                                    <asp:Image ID="Image1" runat="server" AlternateText="Product Image" Width="100" CssClass="my-2" style="border-radius:12px;" />
+                                    <p class="mb-0"><asp:Label ID="tName" runat="server" Text=""></asp:Label></p>
+                                </th>
+                                <td class="text-end ps-3">Rp <asp:Label ID="tPrice" runat="server" Text=""></asp:Label></td>
+                                <td class="text-end ps-3">
+                                    <asp:Label ID="tQuantity" runat="server" Text=""></asp:Label>
+                                </td>
+                                <td class="text-end ps-3 pe-4">Rp <asp:Label ID="tTotal" runat="server" Text=""></asp:Label>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -66,7 +60,7 @@
                     </tr>
                     <tr>
                         <td colspan="3" class="text-end fw-bold">Shipping Fee</td>
-                        <td class="text-end pe-4">Rp {{ number_format($detail->first()->shipping->price, 2) }}</td>
+                        <td class="text-end pe-4">Rp <asp:Label ID="tShippingFee" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-end fw-bold">Discount</td>
@@ -78,6 +72,7 @@
                             {{ number_format($total + $detail->first()->shipping->price, 2) }}</td>
                     </tr>
                 </tfoot>
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </table>
         </div>
 

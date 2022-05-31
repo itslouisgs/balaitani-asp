@@ -13,7 +13,13 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<TransactionHeader> transactions = TransactionController.GetAllTransactions();
+            if (UserController.GetCurrentUser() == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+                return;
+            }
+
+            List<TransactionHeader> transactions = UserController.GetCurrentUser().TransactionHeaders.ToList();
             listTransactions.DataSource = transactions;
             listTransactions.DataBind();
         }

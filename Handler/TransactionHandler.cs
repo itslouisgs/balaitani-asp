@@ -19,11 +19,6 @@ namespace balaitani_psd.Handler
             return TransactionRepository.AddTransactionDetails(transactionDetails);
         }
 
-        public static List<TransactionHeader> GetAllTransactions()
-        {
-            return TransactionRepository.GetAllTransactions();
-        }
-
         public static TransactionHeader GetTransactionById(int id)
         {
             return TransactionRepository.GetTransactionById(id);

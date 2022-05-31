@@ -27,26 +27,21 @@ namespace balaitani_psd.View
             //
             currentTransaction = TransactionController.GetTransactionById(id);
 
-            if (currentTransaction)
+            if (currentTransaction != null)
             {
+                tDate.Text = currentTransaction.transaction_date + "";
+                tStatus.Text = currentTransaction.status;
+                tShipping.Text = currentTransaction.Shipping.name;
+                tPaymentMethod.Text = currentTransaction.PaymentMethod.name;
+                tShippingFee.Text = currentTransaction.Shipping.price + "";
 
-                nameLbl.Text = currentProduct.name;
-                sellerLbl.Text = currentProduct.User.name;
-                priceLbl.Text = currentProduct.price + "";
-                stockLbl.Text = currentProduct.stock + "";
-                descLbl.Text = currentProduct.description;
-                productImg.ImageUrl = "~/Asset/" + currentProduct.image;
+                Label1.Text = currentTransaction.TransactionDetails.ToString();
+                                
             }
             else
             {
                 Response.Redirect("~/View/HomePage.aspx");
                 return;
-            }
-
-            if (UserController.GetCurrentUser() == null || UserController.GetCurrentUser().id != currentProduct.User.id)
-            {
-                editBtn.Visible = false;
-                trashBtn.Visible = false;
             }
         }
     }

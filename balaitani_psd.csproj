@@ -98,6 +98,7 @@
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="View\TransactionPage.aspx" />
     <Content Include="View\UpdateProduct.aspx" />
+    <Content Include="View\TransactionDetailPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +225,13 @@
     </Compile>
     <Compile Include="View\UpdateProduct.aspx.designer.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
