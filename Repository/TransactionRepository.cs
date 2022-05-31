@@ -25,5 +25,15 @@ namespace balaitani_psd.Repository
 
             return transactionDetails;
         }
+
+        public static List<TransactionHeader> GetAllTransactions()
+        {
+            return db.TransactionHeaders.ToList();
+        }
+
+        public static TransactionHeader GetTransactionById(int id)
+        {
+            return db.TransactionHeaders.Find(id);
+        }
     }
 }

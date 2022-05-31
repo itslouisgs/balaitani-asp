@@ -96,6 +96,7 @@
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\ProductDetailPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\TransactionPage.aspx" />
     <Content Include="View\UpdateProduct.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -208,6 +209,14 @@
     </Compile>
     <Compile Include="View\Template.Master.designer.cs">
       <DependentUpon>Template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\Transaction.cs" />
+    <Compile Include="View\TransactionPage.aspx.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionPage.aspx.designer.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\UpdateProduct.aspx.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>

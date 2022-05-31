@@ -27,7 +27,7 @@ namespace balaitani_psd.Model
     
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Product> TransactionDetail { get; set; }
         public virtual DbSet<Shipping> Shippings { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }

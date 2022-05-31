@@ -14,19 +14,19 @@ namespace balaitani_psd.Repository
 
         public static Product GetProductById(int id)
         {
-            Product product = db.Products.Find(id);
+            Product product = db.TransactionDetail.Find(id);
 
             return product;
         }
 
         public static List<Product> GetAllProducts()
         {
-            return db.Products.ToList();
+            return db.TransactionDetail.ToList();
         }
 
         public static Product AddProduct(Product product)
         {
-            db.Products.Add(product);
+            db.TransactionDetail.Add(product);
             db.SaveChanges();
 
             return product;
@@ -40,7 +40,7 @@ namespace balaitani_psd.Repository
 
         public static bool DeleteProduct(Product product)
         {
-            db.Products.Remove(product);
+            db.TransactionDetail.Remove(product);
             try
             {
                 db.SaveChanges();

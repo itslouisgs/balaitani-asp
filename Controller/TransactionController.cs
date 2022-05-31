@@ -24,5 +24,13 @@ namespace balaitani_psd.Controller
             CartHandler.ClearCart(carts);
             return true;
         }
+        public static List<TransactionHeader> GetAllTransactions()
+        {
+            return TransactionHandler.GetAllTransactions();
+        }
+        public static TransactionHeader GetTransactionById(int id)
+        {
+            return TransactionHandler.GetTransactionById(id);
+        }
     }
 }
