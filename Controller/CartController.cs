@@ -12,7 +12,7 @@ namespace balaitani_psd.Controller
     {
         public static string AddCart(User user, Product product, int quantity) 
         {
-            if (quantity < 1 && quantity > product.stock)
+            if (quantity < 1 || quantity > product.stock)
             {
                 return "Quantity must be between 1 and " + product.stock;
             }
@@ -34,6 +34,16 @@ namespace balaitani_psd.Controller
         public static void DeleteCart(Cart cart)
         {
             CartHandler.DeleteCart(cart);
+        }
+
+        public static void UpdateCart(Cart cart, int quantity)
+        {
+            if(quantity < 0 || quantity > cart.Product.stock)
+            {
+                return;
+            }
+            cart.quantity = quantity;
+            CartHandler.UpdateCart(cart);
         }
     }
 }

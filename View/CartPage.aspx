@@ -32,7 +32,7 @@
                                                         class="fal fa-trash-alt"></i></asp:LinkButton>
                                                 <div class="input-group" style="width: 150px">
                                                     <span class="input-group-text">Quantity</span>
-                                                    <asp:TextBox ID="quantityTxt" TextMode="Number" Text='<%# Eval("quantity")  %>' class="form-control" OnTextChanged="quantityTxt_TextChanged" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="quantityTxt"  TextMode="Number" Text='<%# Eval("quantity")  %>' class="form-control" ReadOnly="true" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>

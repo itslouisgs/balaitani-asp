@@ -44,11 +44,6 @@ namespace balaitani_psd.View
             }
         }
 
-        protected void quantityTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void rptCarts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if(e.CommandName == "deleteCart")
@@ -61,5 +56,20 @@ namespace balaitani_psd.View
                 Response.Redirect(Request.RawUrl);
             }
         }
+
+        //protected void quantityTxt_TextChanged(object sender, EventArgs e)
+        //{
+        //    Debug.WriteLine("masuk");
+        //    TextBox txt = (TextBox)sender;
+        //    RepeaterItem item = (RepeaterItem)txt.NamingContainer;
+        //    Button btn = (Button)item.FindControl("deleteBtn");
+        //    string idStr = btn.CommandArgument.ToString();
+        //    int.TryParse(idStr, out int id);
+        //    Cart cart = carts.Where(c => c.product_id == id).FirstOrDefault();
+
+        //    int.TryParse(txt.Text, out int quantity);
+
+        //    CartController.UpdateCart(cart, quantity);
+        //}
     }
 }
