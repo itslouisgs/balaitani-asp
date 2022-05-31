@@ -1,4 +1,4 @@
 # SQL Server files
-# *.mdf
-# *.ldf
-# App_Data/
+*.mdf
+*.ldf
+App_Data/

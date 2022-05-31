@@ -9,37 +9,40 @@
         <div class="w-100">
             <asp:Label runat="server" class="details d-flex gap-5" ID="emptyCartErrorContainer">
                 <div class="alert alert-danger w-100" role="alert">
-                    Your cart is empty! Back to <a href="/" class="underline" style="color: inherit;">Main Menu</a>?
+                    Your cart is empty! Back to <a href="HomePage.aspx" class="underline" style="color: inherit;">Main Menu</a>?
                 </div>
             </asp:Label>
             <asp:Label ID="cartContainer" class="details d-flex gap-5" runat="server">
 
-
                 <ul class="list-group" style="min-width: 72.5%">
-                        <li class="list-group-item shadow rounded d-flex align-items-center w-100 p-4 gap-4 mb-3">
-                            <div class="d-flex gap-5 w-100" style="">
-                                <div class="" style="width: 15%" ;>
-                                    <img src="" alt="Product Image"
-                                        class="w-100" style="border-radius:12px;">
-                                </div>
-                                <div class="" style="width: 85%">
-                                    <h5 class="fw-normal">name</h5>
-                                    <p class="fw-bold">Rp price</p>
-                                    <div class="d-flex justify-content-between">
-                                        <a href="/product/id" class="btn btn-success">Details</a>
-                                        <div class="d-flex gap-3">
-                                                <button type="submit" class="btn btn-outline-danger"><i
-                                                        class="fal fa-trash-alt"></i></button>
-                                            <div class="input-group" style="width: 150px">
-                                                <span class="input-group-text">Quantity</span>
-                                                <input type="number" class="form-control" placeholder="0" name="quantity"
-                                                    value="qty">
+                    <asp:Repeater ID="rptCarts" runat="server">
+                        <ItemTemplate>
+                            <li class="list-group-item shadow rounded d-flex align-items-center w-100 p-4 gap-4 mb-3">
+                                <div class="d-flex gap-5 w-100" style="">
+                                    <div class="" style="width: 15%">
+                                        <asp:Image ID="Image1" runat="server" alt="Product Image" class="w-100" style="border-radius: 12px;" ImageUrl='<%# "~/Asset/" +  Eval("Product.image")  %>'/>
+                                    </div>
+                                    <div class="" style="width: 85%">
+                                        <h5 class="fw-normal"><%# Eval("Product.name")  %></h5>
+                                        <p class="fw-bold">Rp <%# Eval("Product.price")  %></p>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="/product/id" class="btn btn-success">Details</a>
+                                            <div class="d-flex gap-3">
+                                                <button type="submit" class="btn btn-outline-danger">
+                                                    <i
+                                                        class="fal fa-trash-alt"></i>
+                                                </button>
+                                                <div class="input-group" style="width: 150px">
+                                                    <span class="input-group-text">Quantity</span>
+                                                    <asp:TextBox ID="quantityTxt" TextMode="Number" Text='<%# Eval("quantity")  %>' class="form-control" OnTextChanged="quantityTxt_TextChanged" runat="server"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
                 <div class="card shadow p-4" style="min-width: 27.5%; height: fit-content;">
                     <h5>Summary</h5>
@@ -56,7 +59,7 @@
                             <span>Discount</span>
                             <span>-Rp 0.00</span>
                         </li>
-                        <hr class="my-2"/>
+                        <hr class="my-2" />
                         <li class="d-flex justify-content-between">
                             <span class="fw-bold">Total</span>
                             <span class="fw-bold">Rp 0</span>
