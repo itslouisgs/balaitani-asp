@@ -11,6 +11,10 @@ namespace balaitani_psd.Controller
 {
     public class ProductController
     {
+        public static bool DeleteProduct(Product product)
+        {
+            return ProductHandler.DeleteProduct(product);
+        }
         public static Product GetProductById(int id)
         {
             return ProductHandler.GetProductById(id);

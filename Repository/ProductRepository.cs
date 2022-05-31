@@ -38,5 +38,20 @@ namespace balaitani_psd.Repository
             db.SaveChanges();
             return product;
         }
+
+        public static bool DeleteProduct(Product product)
+        {
+            db.Products.Remove(product);
+            try
+            {
+                db.SaveChanges();
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

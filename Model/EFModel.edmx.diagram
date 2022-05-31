@@ -12,11 +12,11 @@
         <EntityTypeShape EntityType="MainDatabaseModel.TransactionDetail" Width="1.5" PointX="5.25" PointY="5.25" />
         <EntityTypeShape EntityType="MainDatabaseModel.TransactionHeader" Width="1.5" PointX="3" PointY="4.5" />
         <EntityTypeShape EntityType="MainDatabaseModel.User" Width="1.5" PointX="0.75" PointY="4.625" />
-        <AssociationConnector Association="MainDatabaseModel.FK__Cart__product_id__2D27B809" />
-        <AssociationConnector Association="MainDatabaseModel.FK__Cart__user_id__2C3393D0" />
+        <AssociationConnector Association="MainDatabaseModel.FK_Cart_Product" />
+        <AssociationConnector Association="MainDatabaseModel.FK_Cart_User" />
         <AssociationConnector Association="MainDatabaseModel.FK__Transacti__payme__32E0915F" />
-        <AssociationConnector Association="MainDatabaseModel.FK__Transacti__produ__36B12243" />
         <AssociationConnector Association="MainDatabaseModel.FK_Product_User" />
+        <AssociationConnector Association="MainDatabaseModel.FK_TransactionDetail_Product" />
         <AssociationConnector Association="MainDatabaseModel.FK__Transacti__shipp__31EC6D26" />
         <AssociationConnector Association="MainDatabaseModel.FK__Transacti__trans__35BCFE0A" />
         <AssociationConnector Association="MainDatabaseModel.FK__Transacti__user___30F848ED" />

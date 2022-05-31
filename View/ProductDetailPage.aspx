@@ -16,7 +16,7 @@
                         <i class="fal fa-pencil"></i>
                     </a>--%>
                     <asp:LinkButton ID="editBtn" OnClick="editBtn_Click" runat="server" class="btn btn-outline-success mx-2"><i class="fal fa-pencil"></i></asp:LinkButton>
-                    <asp:LinkButton ID="trashBtn" runat="server" class="btn btn-outline-danger"><i class="fal fa-trash-alt"></i></asp:LinkButton>
+                    <asp:LinkButton ID="trashBtn" OnClick="trashBtn_Click" runat="server" class="btn btn-outline-danger"><i class="fal fa-trash-alt"></i></asp:LinkButton>
                 </div>
             </div>
             <p>

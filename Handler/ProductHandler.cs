@@ -28,5 +28,10 @@ namespace balaitani_psd.Handler
         {
             return ProductRepository.UpdateProduct(product);
         }
+
+        public static bool DeleteProduct(Product product)
+        {
+            return ProductRepository.DeleteProduct(product);
+        }
     }
 }

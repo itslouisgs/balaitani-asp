@@ -53,9 +53,12 @@ namespace balaitani_psd.View
             Response.Redirect("~/View/UpdateProduct.aspx?id=" + currentProduct.id);
         }
 
-        //protected void addtocart(object sender, eventargs e)
-        //{
-
-        //}
+        protected void trashBtn_Click(object sender, EventArgs e)
+        {
+            if (ProductController.DeleteProduct(currentProduct))
+                Response.Redirect("HomePage.aspx");
+            else
+                errorLbl.Text = "Delete error!";
+        }
     }
 }

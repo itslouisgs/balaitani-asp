@@ -72,30 +72,6 @@
           <Property Name="address" Type="text" Nullable="false" />
           <Property Name="role" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Cart__product_id__2D27B809">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Cart">
-              <PropertyRef Name="product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Cart__user_id__2C3393D0">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Cart">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Transacti__payme__32E0915F">
           <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="*" />
@@ -105,18 +81,6 @@
             </Principal>
             <Dependent Role="TransactionHeader">
               <PropertyRef Name="payment_method_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Transacti__produ__36B12243">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TransactionDetail">
-              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -156,6 +120,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cart_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -168,6 +160,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TransactionDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MainDatabaseModelStoreContainer">
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
@@ -176,21 +182,9 @@
           <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Cart__product_id__2D27B809" Association="Self.FK__Cart__product_id__2D27B809">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Cart" EntitySet="Cart" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Cart__user_id__2C3393D0" Association="Self.FK__Cart__user_id__2C3393D0">
-            <End Role="User" EntitySet="User" />
-            <End Role="Cart" EntitySet="Cart" />
-          </AssociationSet>
           <AssociationSet Name="FK__Transacti__payme__32E0915F" Association="Self.FK__Transacti__payme__32E0915F">
             <End Role="PaymentMethod" EntitySet="PaymentMethod" />
             <End Role="TransactionHeader" EntitySet="TransactionHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transacti__produ__36B12243" Association="Self.FK__Transacti__produ__36B12243">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
           <AssociationSet Name="FK__Transacti__shipp__31EC6D26" Association="Self.FK__Transacti__shipp__31EC6D26">
             <End Role="Shipping" EntitySet="Shipping" />
@@ -204,9 +198,21 @@
             <End Role="User" EntitySet="User" />
             <End Role="TransactionHeader" EntitySet="TransactionHeader" />
           </AssociationSet>
+          <AssociationSet Name="FK_Cart_Product" Association="Self.FK_Cart_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
             <End Role="User" EntitySet="User" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetail_Product" Association="Self.FK_TransactionDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -221,11 +227,11 @@
           <EntitySet Name="TransactionDetails" EntityType="MainDatabaseModel.TransactionDetail" />
           <EntitySet Name="TransactionHeaders" EntityType="MainDatabaseModel.TransactionHeader" />
           <EntitySet Name="Users" EntityType="MainDatabaseModel.User" />
-          <AssociationSet Name="FK__Cart__product_id__2D27B809" Association="MainDatabaseModel.FK__Cart__product_id__2D27B809">
+          <AssociationSet Name="FK_Cart_Product" Association="MainDatabaseModel.FK_Cart_Product">
             <End Role="Product" EntitySet="Products" />
             <End Role="Cart" EntitySet="Carts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cart__user_id__2C3393D0" Association="MainDatabaseModel.FK__Cart__user_id__2C3393D0">
+          <AssociationSet Name="FK_Cart_User" Association="MainDatabaseModel.FK_Cart_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Cart" EntitySet="Carts" />
           </AssociationSet>
@@ -233,13 +239,13 @@
             <End Role="PaymentMethod" EntitySet="PaymentMethods" />
             <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__produ__36B12243" Association="MainDatabaseModel.FK__Transacti__produ__36B12243">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_Product_User" Association="MainDatabaseModel.FK_Product_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetail_Product" Association="MainDatabaseModel.FK_TransactionDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
           </AssociationSet>
           <AssociationSet Name="FK__Transacti__shipp__31EC6D26" Association="MainDatabaseModel.FK__Transacti__shipp__31EC6D26">
             <End Role="Shipping" EntitySet="Shippings" />
@@ -262,8 +268,8 @@
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="MainDatabaseModel.FK__Cart__product_id__2D27B809" FromRole="Cart" ToRole="Product" />
-          <NavigationProperty Name="User" Relationship="MainDatabaseModel.FK__Cart__user_id__2C3393D0" FromRole="Cart" ToRole="User" />
+          <NavigationProperty Name="Product" Relationship="MainDatabaseModel.FK_Cart_Product" FromRole="Cart" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="MainDatabaseModel.FK_Cart_User" FromRole="Cart" ToRole="User" />
         </EntityType>
         <EntityType Name="PaymentMethod">
           <Key>
@@ -284,9 +290,9 @@
           <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="seller_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Carts" Relationship="MainDatabaseModel.FK__Cart__product_id__2D27B809" FromRole="Product" ToRole="Cart" />
-          <NavigationProperty Name="TransactionDetails" Relationship="MainDatabaseModel.FK__Transacti__produ__36B12243" FromRole="Product" ToRole="TransactionDetail" />
+          <NavigationProperty Name="Carts" Relationship="MainDatabaseModel.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
           <NavigationProperty Name="User" Relationship="MainDatabaseModel.FK_Product_User" FromRole="Product" ToRole="User" />
+          <NavigationProperty Name="TransactionDetails" Relationship="MainDatabaseModel.FK_TransactionDetail_Product" FromRole="Product" ToRole="TransactionDetail" />
         </EntityType>
         <EntityType Name="Shipping">
           <Key>
@@ -305,7 +311,7 @@
           <Property Name="transaction_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="MainDatabaseModel.FK__Transacti__produ__36B12243" FromRole="TransactionDetail" ToRole="Product" />
+          <NavigationProperty Name="Product" Relationship="MainDatabaseModel.FK_TransactionDetail_Product" FromRole="TransactionDetail" ToRole="Product" />
           <NavigationProperty Name="TransactionHeader" Relationship="MainDatabaseModel.FK__Transacti__trans__35BCFE0A" FromRole="TransactionDetail" ToRole="TransactionHeader" />
         </EntityType>
         <EntityType Name="TransactionHeader">
@@ -333,12 +339,14 @@
           <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="role" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Carts" Relationship="MainDatabaseModel.FK__Cart__user_id__2C3393D0" FromRole="User" ToRole="Cart" />
+          <NavigationProperty Name="Carts" Relationship="MainDatabaseModel.FK_Cart_User" FromRole="User" ToRole="Cart" />
           <NavigationProperty Name="Products" Relationship="MainDatabaseModel.FK_Product_User" FromRole="User" ToRole="Product" />
           <NavigationProperty Name="TransactionHeaders" Relationship="MainDatabaseModel.FK__Transacti__user___30F848ED" FromRole="User" ToRole="TransactionHeader" />
         </EntityType>
-        <Association Name="FK__Cart__product_id__2D27B809">
-          <End Type="MainDatabaseModel.Product" Role="Product" Multiplicity="1" />
+        <Association Name="FK_Cart_Product">
+          <End Type="MainDatabaseModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="MainDatabaseModel.Cart" Role="Cart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -349,8 +357,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cart__user_id__2C3393D0">
-          <End Type="MainDatabaseModel.User" Role="User" Multiplicity="1" />
+        <Association Name="FK_Cart_User">
+          <End Type="MainDatabaseModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="MainDatabaseModel.Cart" Role="Cart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -373,18 +383,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__produ__36B12243">
-          <End Type="MainDatabaseModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="MainDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TransactionDetail">
-              <PropertyRef Name="product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Product_User">
           <End Type="MainDatabaseModel.User" Role="User" Multiplicity="1" />
           <End Type="MainDatabaseModel.Product" Role="Product" Multiplicity="*" />
@@ -394,6 +392,20 @@
             </Principal>
             <Dependent Role="Product">
               <PropertyRef Name="seller_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetail_Product">
+          <End Type="MainDatabaseModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MainDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -433,7 +445,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
