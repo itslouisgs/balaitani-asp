@@ -13,6 +13,8 @@ namespace balaitani_psd.View
     public partial class CartPage : System.Web.UI.Page
     {
         private List<Cart> carts;
+        private List<PaymentMethod> paymentMethods;
+        private List<Shipping> shippings;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (UserController.GetCurrentUser() == null)
@@ -41,6 +43,30 @@ namespace balaitani_psd.View
                 emptyCartErrorContainer.Visible = false;
                 rptCarts.DataSource = carts;
                 rptCarts.DataBind();
+
+                shippings = ShippingController.GetAllShippings();
+
+                var dataSource = from x in shippings
+                                 select new
+                                 {
+                                     x.id,
+                                     x.name,
+                                     DisplayField = String.Format("{0} (Rp{1})", x.name, x.price)
+                                 };
+                shippingServiceSelect.DataTextField = "DisplayField";
+                shippingServiceSelect.DataValueField = "id";
+                shippingServiceSelect.DataSource = dataSource;
+
+                shippingServiceSelect.DataBind();
+                shippingServiceSelect.Items.Insert(0, new ListItem("Choose shipping service", "0"));
+
+                paymentMethods = PaymentMethodController.GetAllPaymentMethods();
+                paymentMethodSelect.DataTextField = "name";
+                paymentMethodSelect.DataValueField = "id";
+                paymentMethodSelect.DataSource = paymentMethods;
+
+                paymentMethodSelect.DataBind();
+                paymentMethodSelect.Items.Insert(0, new ListItem("Choose payment method", "0"));
             }
         }
 
@@ -55,6 +81,16 @@ namespace balaitani_psd.View
                 CartController.DeleteCart(cart);
                 Response.Redirect(Request.RawUrl);
             }
+        }
+
+        protected void shippingServiceSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void paymentMethodSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         //protected void quantityTxt_TextChanged(object sender, EventArgs e)

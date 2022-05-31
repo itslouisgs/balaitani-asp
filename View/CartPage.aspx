@@ -57,6 +57,23 @@
                             <span>Discount</span>
                             <span>-Rp 0,00</span>
                         </li>
+                        <li class="d-flex justify-content-between">
+                            <asp:DropDownList ID="shippingServiceSelect" class="form-select"  runat="server" OnSelectedIndexChanged="shippingServiceSelect_SelectedIndexChanged">
+                                <asp:ListItem Value="0" Text="Choose shipping service" Selected="true"/>
+                                <%--<asp:Repeater ID="shippingRpt" runat="server">
+                                    <ItemTemplate>
+                                        <asp:ListItem Value='<%# Eval("id")  %>' Text='<%# Eval("name")  %>' />
+                                    </ItemTemplate>
+                                </asp:Repeater>--%>
+                            </asp:DropDownList>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <asp:DropDownList ID="paymentMethodSelect" class="form-select"  runat="server" OnSelectedIndexChanged="paymentMethodSelect_SelectedIndexChanged"
+                                >
+                                <asp:ListItem Value="0" Text="Choose payment method" Selected="true"/>
+                                <asp:ListItem Value="1" Text="tes" />
+                            </asp:DropDownList>
+                        </li>
                         <hr class="my-2" />
                         <li class="d-flex justify-content-between">
                             <span class="fw-bold">Total</span>
