@@ -19,7 +19,7 @@
                 <ItemTemplate>
                     <tr>
                         <td><%# Eval("transaction_date")  %></td>
-                        <td class="@(@status == "success" ? "text-success" : "text-danger")"><%# Eval("status")  %></td>
+                        <td class="text-capitalize"><%# Eval("status")  %></td>
                         <td><%# Eval("Shipping.name")  %></td>
                         <td><%# Eval("PaymentMethod.name")  %></td>
                         <td>

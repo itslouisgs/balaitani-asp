@@ -6,7 +6,6 @@
     <div class="banner position-relative overflow-hidden text-center d-flex flex-column justify-content-center align-items-center" style="height: 60vh;">
         <h1 class="text-light display-2 position-relative">Welcome to BalaiTani !</h1>
         <p class="text-light position-relative"><i>No. 1 App to support Indonesian local farmers</i></p>
-        <a href="/about-us">About Us</a>
         <asp:HyperLink ID="aboutUsLink" runat="server" class="btn btn-outline-light position-relative" NavigateUrl="~/View/AboutUsPage.aspx">About Us</asp:HyperLink>
     </div>
     <div class="d-flex justify-content-center flex-wrap p-3">
