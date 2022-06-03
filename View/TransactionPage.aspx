@@ -28,6 +28,9 @@
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>
+            <asp:Label runat="server" class="" ID="noTransactionsCol">
+                <td class="text-center py-4" colspan="5">There are no transactions.</td>
+            </asp:Label>
         </tbody>
       </table>
 </div>

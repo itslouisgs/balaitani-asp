@@ -22,6 +22,13 @@ namespace balaitani_psd.View
             List<TransactionHeader> transactions = UserController.GetCurrentUser().TransactionHeaders.ToList();
             listTransactions.DataSource = transactions;
             listTransactions.DataBind();
+
+            noTransactionsCol.Visible = false;
+
+            if (transactions.Count == 0)
+            {
+                noTransactionsCol.Visible = true;
+            }
         }
     }
 }
