@@ -121,7 +121,7 @@ namespace balaitani_psd.View
 
             if(TransactionController.Checkout(UserController.GetCurrentUser().id, carts, payment_method_id, shipping_id))
             {
-                Response.Redirect(Request.RawUrl);
+                Response.Redirect("TransactionPage.aspx");
             }
         }
 
