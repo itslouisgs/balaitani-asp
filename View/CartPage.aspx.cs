@@ -19,7 +19,6 @@ namespace balaitani_psd.View
         private int totalPrice = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("maaaa");
             if (UserController.GetCurrentUser() == null)
             {
                 Response.Redirect("LoginPage.aspx");

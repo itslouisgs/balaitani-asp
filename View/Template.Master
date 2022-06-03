@@ -125,9 +125,9 @@
                                 <asp:HyperLink ID="sellProductLink" NavigateUrl="~/View/AddProduct.aspx" runat="server" class="dropdown-item d-flex align-items-center justify-content-between">Sell Product <i class="fal fa-plus-circle"></i></asp:HyperLink>
 
                             </li>
-                            <li>
+                            <%--<li>
                                 <asp:HyperLink ID="verifyTransactionLink" NavigateUrl="#" runat="server" class="dropdown-item d-flex align-items-center justify-content-between">Verify Transaction <i class="fal fa-plus-circle"></i></asp:HyperLink>
-                            </li>
+                            </li>--%>
 
                             <li>
                                 <asp:LinkButton ID="logoutBtn" OnClick="logoutBtn_Click" class="dropdown-item d-flex align-items-center justify-content-between text-danger" runat="server">Logout <i class="fal fa-sign-out"></i></asp:LinkButton>

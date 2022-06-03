@@ -96,15 +96,6 @@ namespace balaitani_psd.View
         protected global::System.Web.UI.WebControls.HyperLink sellProductLink;
 
         /// <summary>
-        /// verifyTransactionLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink verifyTransactionLink;
-
-        /// <summary>
         /// logoutBtn control.
         /// </summary>
         /// <remarks>

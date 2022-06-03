@@ -13,6 +13,11 @@ namespace balaitani_psd.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(UserController.GetCurrentUser() != null)
+            {
+                Response.Redirect("HomePage.aspx");
+                return;
+            }
             errorLbl.Visible = false;
         }
 

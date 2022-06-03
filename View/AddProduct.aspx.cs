@@ -29,7 +29,6 @@ namespace balaitani_psd.View
             int.TryParse(priceTxt.Text, out int price);
             int.TryParse(stockTxt.Text, out int stock);
             string description = descriptionTxt.Text;
-            //string image = imageFile.FileName;
 
             string msg = ProductController.AddProduct(name, price, stock, imageFile, description, currentUser.id);
 
