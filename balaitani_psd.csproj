@@ -79,7 +79,9 @@
     <Content Include="App_Data\MainDatabase_log.ldf">
       <DependentUpon>MainDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Asset\logo-black.png" />
     <Content Include="Asset\logo-white.png" />
+    <Content Include="Asset\petani.png" />
     <Content Include="Model\EFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EFModel.Context.cs</LastGenOutput>
@@ -90,6 +92,7 @@
       <DependentUpon>EFModel.edmx</DependentUpon>
       <LastGenOutput>EFModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\AboutUsPage.aspx" />
     <Content Include="View\AddProduct.aspx" />
     <Content Include="View\CartPage.aspx" />
     <Content Include="View\HomePage.aspx" />
@@ -162,6 +165,13 @@
       <DependentUpon>EFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Util\Database.cs" />
+    <Compile Include="View\AboutUsPage.aspx.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AboutUsPage.aspx.designer.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
