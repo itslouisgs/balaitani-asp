@@ -40,7 +40,7 @@
                 <asp:Repeater ID="pageRpt" runat="server">
                     <ItemTemplate>
                         <%--<li class="page-item active" aria-current="page"><span class="page-link">1</span></li>--%>
-                        <li class="page-item"><a class="page-link" href='?page=<%# Container.DataItem %>'><%# Container.DataItem %></a></li>
+                        <li class='page-item <%# IsActivePage((int)Container.DataItem) ? "active" : "" %>'><a class="page-link" href='?page=<%# Container.DataItem %>'><%# Container.DataItem %></a></li>
                         <%--<li class="page-item"><a class="page-link" href="?page=3">3</a></li>--%>
                     </ItemTemplate>
                 </asp:Repeater>

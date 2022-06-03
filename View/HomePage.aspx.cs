@@ -21,6 +21,8 @@ namespace balaitani_psd.View
                 {
                     page = 1;
                 }
+                Session["currentPage"] = page;
+
                 (List<Product> products, int totalProductsCount) = ProductController.GetAllProducts(page);
 
                 rptProducts.DataSource = products;
@@ -30,7 +32,6 @@ namespace balaitani_psd.View
                 pageRpt.DataSource = pages;
                 pageRpt.DataBind();
 
-                Session["currentPage"] = page;
                 Session["pageCount"] = pages.Length;
             }
         }
@@ -57,6 +58,11 @@ namespace balaitani_psd.View
             }
 
             Response.Redirect("HomePage.aspx?page=" + (currentPage + 1));
+        }
+
+        protected bool IsActivePage(int page)
+        {
+            return (Session["currentPage"] != null && page == (int)Session["currentPage"]);
         }
     }
 }
