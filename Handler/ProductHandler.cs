@@ -14,9 +14,9 @@ namespace balaitani_psd.Handler
             return ProductRepository.GetProductById(id);
         }
 
-        public static List<Product> GetAllProducts()
+        public static (List<Product>, int) GetAllProducts(int page = 1)
         {
-            return ProductRepository.GetAllProducts();
+            return ProductRepository.GetAllProducts(page);
         }
 
         public static Product AddProduct(Product product)

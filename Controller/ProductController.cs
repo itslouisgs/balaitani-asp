@@ -20,9 +20,9 @@ namespace balaitani_psd.Controller
             return ProductHandler.GetProductById(id);
         }
 
-        public static List<Product> GetAllProducts()
+        public static (List<Product>, int) GetAllProducts(int page = 1)
         {
-            return ProductHandler.GetAllProducts();
+            return ProductHandler.GetAllProducts(page);
         }
 
         public static string AddProduct(string name, int price, int stock, FileUpload imageFile, string description, int seller_id) //add img later

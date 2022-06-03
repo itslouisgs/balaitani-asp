@@ -19,9 +19,11 @@ namespace balaitani_psd.Repository
             return product;
         }
 
-        public static List<Product> GetAllProducts()
+        public static (List<Product>, int) GetAllProducts(int page = 1)
         {
-            return db.Products.ToList();
+            int itemPerPage = 8;
+            return (db.Products.OrderBy(p => p.id).Skip((page - 1) * itemPerPage).Take(itemPerPage).ToList(),
+                    db.Products.Count());
         }
 
         public static Product AddProduct(Product product)
