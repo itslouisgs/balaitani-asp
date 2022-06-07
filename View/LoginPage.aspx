@@ -14,7 +14,7 @@
                 <asp:TextBox ID="passwordTxt" runat="server" class="form-control my-2" placeholder="Password"  TextMode="Password"></asp:TextBox>
             </div>
             <asp:Button ID="loginBtn" runat="server" Text="Login" class="btn btn-success w-100 mt-3" OnClick="loginBtn_Click"/>
-            <asp:Button ID="registerBtn" runat="server" Text="Register" class="btn btn-success w-100 mt-3" style="opacity: 0.7"/>
+            <asp:HyperLink ID="registerLink" class="btn btn-success w-100 mt-3" style="opacity: 0.7" runat="server" NavigateUrl="~/View/RegisterPage.aspx">Register</asp:HyperLink>
             <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
         </div>
     </div>

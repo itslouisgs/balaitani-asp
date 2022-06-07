@@ -22,7 +22,7 @@
                 <asp:TextBox ID="addressTxt" Height="100" class="form-control my-2 top" placeholder="Enter address" runat="server"></asp:TextBox>
             </div>
             <asp:Button ID="registerBtn" runat="server" class="btn btn-success w-100 my-3" Text="Register" OnClick="registerBtn_Click"/>
-            <a href="/login" class="btn btn-success w-100" style="opacity: 0.7">Login</a>
+            <asp:HyperLink ID="loginLink" NavigateUrl="~/View/LoginPage.aspx" class="btn btn-success w-100" style="opacity: 0.7" runat="server">Login</asp:HyperLink>
             <asp:Label ID="errorLbl" runat="server" Text="" class="text-danger"></asp:Label>
         </div>
     </div>

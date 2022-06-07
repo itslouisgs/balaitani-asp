@@ -42,13 +42,13 @@ namespace balaitani_psd.View
         protected global::System.Web.UI.WebControls.Button loginBtn;
 
         /// <summary>
-        /// registerBtn control.
+        /// registerLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerBtn;
+        protected global::System.Web.UI.WebControls.HyperLink registerLink;
 
         /// <summary>
         /// errorLbl control.
